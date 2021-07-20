@@ -1,0 +1,4 @@
+name: annual-monitoring
+description: >
+   Template for analysis of annual monitoring data
+create_dir: FALSE

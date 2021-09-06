@@ -24,14 +24,16 @@ Please note that the vefmap project is released with a [Contributor Code of Cond
 # load package
 library(vefmap)
 
-# load some data
+# load some data (database query eventually)
 load_data()
 
-# download discharge data
-discharge <- aae.hydro::fetch_hydro()
+# set parameters (fuzzy queries and use sci or common names)
+species <- c("murraycod", "goldenperch", "murraydarlingrainbowfish")
+years <- 2016:2021
 
 # run analyses
 analyses <- list(
+  hydrology = analyse_hydro(),
   length_frequency = analyse_length(),
   trends = analyse_trends(),
   recruitment = analyse_recruits(),

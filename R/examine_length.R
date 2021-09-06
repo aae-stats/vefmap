@@ -98,8 +98,9 @@ plot.length_summary <- function(
     )
 
     # add a label with year and count
+    n_obs <- sum(!is.na(x$length_mm[x$water_year == unique_years[i]]))
     mtext(
-      paste0(unique_years[i], " (n = ", sum(!is.na(x$length_mm)), ")"),
+      paste0(unique_years[i], " (n = ", n_obs, ")"),
       side = 3,
       adj = 0.9,
       line = 1,
@@ -119,7 +120,15 @@ plot.length_summary <- function(
     breaks = breaks,
     freq = freq
   )
-  mtext(unique_years[nyear], side = 3, adj = 0.9, line = 0.2)
+
+  # add a label with year and count
+  n_obs <- sum(!is.na(x$length_mm[x$water_year == unique_years[n_year]]))
+  mtext(
+    paste0(unique_years[nyear], " (n = ", n_obs, ")"),
+    side = 3,
+    adj = 0.9,
+    line = 1,
+    cex = 1.05)
 
   # reset plotting margins
   layout(matrix(1))
